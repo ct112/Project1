@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Clock</title>
+    </head>
+    <body>
+        <p id="clock"></p>
+    <script>
+        function time() {
+            let t = new Date();
+            return t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+        }
+        function render_clock(){
+            document.getElementById("clock").innerHTML = time();
+        }
+        setInterval(render_clock,1000)
+
+    </script>
+
+    </body>
+</html>
