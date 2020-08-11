@@ -42,11 +42,11 @@ function covert_time_to_12hr(){
 }
 
 function display_clock_date(){
-    let dates = parse_date();
+    let dates = split_date();
     document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${covert_time_to_12hr()}:${pad_zeros('minutes')}:${pad_zeros('seconds')} ${am_pm_selector()}`;
 }
 
-function parse_date(){
+function split_date(){
     let current_date = new Date();
     let weekday = new Intl.DateTimeFormat('en',{weekday: 'long'}).format(current_date);
     let month = new Intl.DateTimeFormat('en', {month: 'long'}).format(current_date);
