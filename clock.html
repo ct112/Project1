@@ -2,18 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link href="style.css" rel=stylesheet" />
         <title>Clock</title>
     </head>
-    <body>
-        <p id="clock" ></p>
+    <body style="margin:0;">
+        <p id="clock" style="text-align: center;width: 400px; margin: 400px auto;font-size: 150px;" ></p>
     <script>
         function time() {
             let t = new Date();
-            return `${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`
+            return [t.getHours(), t.getMinutes(), t.getSeconds()]
+        }
+        function am_pm(){
+            let t = time()
+            if (t[0] >= 12) {
+                return 'PM';
+            } else {
+                return 'AM'
+            }
+
         }
         function render_clock_date(){
             let dates = parse_date()
-            document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${time()}`;
+            document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${time()[0]}:${time()[1]}:${time()[2]} ${am_pm()}`;
         }
         function parse_date(){
             let d = new Date();
