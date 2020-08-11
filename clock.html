@@ -21,9 +21,29 @@
             }
 
         }
+        function pad_zeros(selection_id){
+            let double_digit_time = time();
+            if (selection_id == 'minutes') {
+                if (double_digit_time[1] < 10) {
+                    return '0' + toString(double_digit_time[1])
+                } else {
+                    return double_digit_time[1]
+                }
+            } else {
+                if (double_digit_time[2] < 10) {
+                    return '0' + double_digit_time[2]
+                } else {
+                    return double_digit_time[2]
+                }
+            }
+
+        }
+        function covert_time_to_12hr(){
+
+        }
         function render_clock_date(){
             let dates = parse_date()
-            document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${time()[0]}:${time()[1]}:${time()[2]} ${am_pm()}`;
+            document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${time()[0]}:${pad_zeros('minutes')}:${pad_zeros('seconds')} ${am_pm()}`;
         }
         function parse_date(){
             let d = new Date();
