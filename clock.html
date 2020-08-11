@@ -12,9 +12,20 @@
             return t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
         }
         function render_clock(){
-            document.getElementById("clock").innerHTML = time();
+            document.getElementById("clock").innerHTML =  time();
         }
-        setInterval(render_clock,1000)
+        function format_date(){
+            let d = new Date();
+            let weekday = new Intl.DateTimeFormat('en',{weekday: 'long'}).format(d)
+            let month = new Intl.DateTimeFormat('en', {month: 'long'}).format(d)
+            let day = new Intl.DateTimeFormat('en', {day: 'numeric'}).format(d)
+            return [weekday, month, day]
+
+        }
+        setInterval(render_clock,1000);
+        alert(format_date())
+
+
 
     </script>
 
