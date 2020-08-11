@@ -12,7 +12,8 @@
             return t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
         }
         function render_clock(){
-            document.getElementById("clock").innerHTML =  time();
+            let dates = format_date()
+            document.getElementById("clock").innerHTML = dates[0] + ", " + dates[1] + " " + dates[2] + " " + time();
         }
         function format_date(){
             let d = new Date();
@@ -23,10 +24,6 @@
 
         }
         setInterval(render_clock,1000);
-        alert(format_date())
-
-
-
     </script>
 
     </body>
