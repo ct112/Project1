@@ -5,17 +5,17 @@
         <title>Clock</title>
     </head>
     <body>
-        <p id="clock"></p>
+        <p id="clock" ></p>
     <script>
         function time() {
             let t = new Date();
-            return t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds()
+            return `${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`
         }
-        function render_clock(){
-            let dates = format_date()
-            document.getElementById("clock").innerHTML = dates[0] + ", " + dates[1] + " " + dates[2] + " " + time();
+        function render_clock_date(){
+            let dates = parse_date()
+            document.getElementById("clock").innerHTML = `${dates[0]}, ${dates[1]} ${dates[2]} ${time()}`;
         }
-        function format_date(){
+        function parse_date(){
             let d = new Date();
             let weekday = new Intl.DateTimeFormat('en',{weekday: 'long'}).format(d)
             let month = new Intl.DateTimeFormat('en', {month: 'long'}).format(d)
@@ -23,7 +23,7 @@
             return [weekday, month, day]
 
         }
-        setInterval(render_clock,1000);
+        setInterval(render_clock_date,1000);
     </script>
 
     </body>
